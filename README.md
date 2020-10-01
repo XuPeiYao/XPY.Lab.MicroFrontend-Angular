@@ -24,6 +24,15 @@
 ng new container --routing --prefix xpy-container
 ng new child1 --routing --prefix xpp-child1
 
-cd container
+cd child1
+npm i -D @angular-builders/custom-webpack
+npm i single-spa
 ng add single-spa-angular
+
+cd ../container
+npm i -D @angular-builders/custom-webpack
+npm i single-spa
+npm i single-spa-angular
+npm i systemjs
+// eiit routing
 ```

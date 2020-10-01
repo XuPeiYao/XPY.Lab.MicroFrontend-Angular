@@ -21,7 +21,7 @@ const lifecycles = singleSpaAngular({
     singleSpaPropsSubject.next(singleSpaProps);
     return platformBrowserDynamic(getSingleSpaExtraProviders()).bootstrapModule(AppModule);
   },
-  template: '<xpy-container-root />',
+  template: '<xpp-child1-root />',
   Router,
   NgZone,
   AnimationEngine,

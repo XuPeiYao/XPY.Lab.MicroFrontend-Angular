@@ -19,7 +19,7 @@
           "options": {
             "outputPath": "dist/container",
             "index": "src/index.html",
-            "main": "src\\main.single-spa.ts",
+            "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
@@ -30,11 +30,14 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/systemjs/dist/system.min.js",
+              "node_modules/systemjs/dist/extras/amd.min.js",
+              "node_modules/systemjs/dist/extras/named-exports.min.js",
+              "node_modules/systemjs/dist/extras/named-register.min.js",
+            ],
             "customWebpackConfig": {
-              "path": "extra-webpack.config.js",
-              "libraryName": "container",
-              "libraryTarget": "umd"
+              "path": "./extra-webpack.config.js"
             }
           },
           "configurations": {
@@ -46,7 +49,7 @@
                 }
               ],
               "optimization": true,
-              "outputHashing": "none",
+              "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -80,7 +83,7 @@
           }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@angular-builders/custom-webpack:extract-i18n",
           "options": {
             "browserTarget": "container:build"
           }
@@ -132,6 +135,6 @@
   },
   "defaultProject": "container",
   "cli": {
-    "analytics": "eefb71a3-2537-4afe-a5ff-c1d34e83d0e0"
+    "analytics": "228caf3b-b4a1-442e-9a94-97685e9fd6b2"
   }
 }

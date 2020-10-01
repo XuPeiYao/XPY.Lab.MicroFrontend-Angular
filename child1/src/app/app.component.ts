@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'xpy-child1-root',
+  selector: 'xpp-child1-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

@@ -3,17 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { MicroFrontendRouteReuseStrategy } from './route-reuse-strategy';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EmptyRouteComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{
+    provide: RouteReuseStrategy,
+    useClass: MicroFrontendRouteReuseStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

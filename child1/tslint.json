@@ -19,13 +19,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "xpyChild1",
+      "xppChild1",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "xpy-child1",
+      "xpp-child1",
       "kebab-case"
     ],
     "eofline": true,
