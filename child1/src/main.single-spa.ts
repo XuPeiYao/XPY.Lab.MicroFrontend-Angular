@@ -16,9 +16,16 @@ if (environment.production) {
   enableProdMode();
 }
 
+export const prop = {
+  basehref: '',
+  origin: ''
+};
 const lifecycles = singleSpaAngular({
   bootstrapFunction: singleSpaProps => {
     singleSpaPropsSubject.next(singleSpaProps);
+    prop.basehref = singleSpaProps['basehref'];
+    prop.origin = singleSpaProps['origin'];
+
     return platformBrowserDynamic(getSingleSpaExtraProviders()).bootstrapModule(AppModule);
   },
   template: '<xpp-child1-root />',
