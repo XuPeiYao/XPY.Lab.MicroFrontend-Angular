@@ -12,7 +12,6 @@ if (environment.production) {
 }
 const appId = 'container-app';
 
-
 platformBrowserDynamic(getSingleSpaExtraProviders())
   .bootstrapModule(AppModule)
   .then(module => {

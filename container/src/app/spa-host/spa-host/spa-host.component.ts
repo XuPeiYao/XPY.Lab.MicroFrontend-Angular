@@ -18,15 +18,18 @@ export class SpaHostComponent implements OnInit {
   appName: string;
 
   ngOnInit() {
-    this.appName = this.route.snapshot.data.app;
+    this.appName = location.pathname.split('/').filter(x => x.length)[0];
+    if (!this.appName) return;
     this.mount().subscribe();
   }
 
   mount(): Observable<unknown> {
+    if (!this.appName) return;
     return this.singleSpaService.mount(this.appName, this.appContainerRef.nativeElement);
   }
 
   unmount(): Observable<unknown> {
+    if (!this.appName) return;
     return this.singleSpaService.unmount(this.appName);
   }
 }

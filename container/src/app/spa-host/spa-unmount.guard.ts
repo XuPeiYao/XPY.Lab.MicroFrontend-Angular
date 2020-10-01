@@ -13,24 +13,21 @@ export class SpaUnmountGuard implements CanDeactivate<SpaHostComponent> {
     nextState: RouterStateSnapshot
   ): boolean | Observable<boolean> {
     const currentApp = component.appName;
+
+
     const nextApp = this.extractAppDataFromRouteTree(nextState.root);
 
     if (currentApp === nextApp) {
       return true;
     }
 
+    if (!currentApp) {
+      return true;
+    }
     return component.unmount().pipe(map(_ => true));
   }
 
   private extractAppDataFromRouteTree(routeFragment: ActivatedRouteSnapshot): string {
-    if (routeFragment.data && routeFragment.data.app) {
-      return routeFragment.data.app;
-    }
-
-    if (!routeFragment.children.length) {
-      return null;
-    }
-
-    return routeFragment.children.map(r => this.extractAppDataFromRouteTree(r)).find(r => r !== null);
+    return location.pathname.split('/').filter(x => x.length)[0];
   }
 }

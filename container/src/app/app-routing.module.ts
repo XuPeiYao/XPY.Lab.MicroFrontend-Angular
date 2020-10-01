@@ -3,9 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'child1',
-    loadChildren: () => import('./spa-host/spa-host.module').then(m => m.SpaHostModule),
-    data: { app: 'child1' }
+    path: '**',
+    loadChildren: () => import('./spa-host/spa-host.module').then(m => m.SpaHostModule)
   }
 ];
 
